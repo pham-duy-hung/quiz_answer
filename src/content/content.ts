@@ -3,11 +3,9 @@ import type {
   ProviderId,
 } from "../shared/types";
 
-const HIGHLIGHT_CLASS = "qah-highlight";
 const OVERLAY_ID = "qah-overlay-root";
 
 let activeRequestId: string | null = null;
-let highlightNodes: HTMLElement[] = [];
 let failedCount = 0;
 let answeredCount = 0;
 
@@ -66,11 +64,8 @@ function handlePrepare(
   if (selection && selection.rangeCount > 0 && selectedText) {
     const range = selection.getRangeAt(0).cloneRange();
     const endRect = getEndRect(range);
-    highlightSelection(range);
     showOverlayShell(endRect);
-    selection.removeAllRanges();
   } else {
-    // Selection lost after context menu — still show overlay near viewport center-right.
     const endRect = new DOMRect(
       Math.min(window.innerWidth - 340, window.innerWidth * 0.55),
       Math.max(80, window.innerHeight * 0.25),
@@ -94,26 +89,6 @@ function getEndRect(range: Range): DOMRect {
 
   const full = range.getBoundingClientRect();
   return new DOMRect(full.right, full.bottom - 16, 0, 16);
-}
-
-function highlightSelection(range: Range): void {
-  try {
-    const span = document.createElement("span");
-    span.className = HIGHLIGHT_CLASS;
-    range.surroundContents(span);
-    highlightNodes.push(span);
-  } catch {
-    try {
-      const fragment = range.extractContents();
-      const span = document.createElement("span");
-      span.className = HIGHLIGHT_CLASS;
-      span.appendChild(fragment);
-      range.insertNode(span);
-      highlightNodes.push(span);
-    } catch {
-      // Leave page untouched if highlight fails.
-    }
-  }
 }
 
 function showOverlayShell(endRect: DOMRect): void {
@@ -204,22 +179,8 @@ function removeOverlay(): void {
   document.getElementById(OVERLAY_ID)?.remove();
 }
 
-function clearHighlights(): void {
-  for (const node of highlightNodes) {
-    const parent = node.parentNode;
-    if (!parent) continue;
-    while (node.firstChild) {
-      parent.insertBefore(node.firstChild, node);
-    }
-    parent.removeChild(node);
-    parent.normalize();
-  }
-  highlightNodes = [];
-}
-
 function clearPrevious(): void {
   removeOverlay();
-  clearHighlights();
   activeRequestId = null;
   failedCount = 0;
   answeredCount = 0;

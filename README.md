@@ -27,11 +27,15 @@ npm run build
 
 1. Bôi đen câu hỏi (nên kèm A/B/C/D nếu có)
 2. Chuột phải → **Get đáp án**
-3. Overlay hiện bên cạnh cuối vùng bôi đen:
+3. Overlay hiện bên cạnh cuối vùng bôi đen (không tô xanh trang):
    - Gemini trước
    - Groq sau
 4. API nào lỗi / quá 10 giây sẽ không hiện slot đó
 5. Mọi lần test key / gọi API đều ghi vào log (popup + file `quiz-answer.log`)
+
+### Gemini bị 503 / timeout?
+
+Key vẫn đúng nếu **Test Gemini** hiện OK. Khi làm bài, free tier hay bị `high demand` — extension sẽ tự thử model nhẹ hơn (`flash-lite` → `3.6-flash` → `3.8-flash`) và retry nhanh. Nếu vẫn fail: đợi vài giây rồi Get đáp án lại, hoặc dựa vào Groq.
 
 ## Dev
 
