@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Quiz Answer Helper",
+  "version": "1.0.0",
+  "description": "Bôi đen câu hỏi, chuột phải Get đáp án — Gemini + Groq hiện ngay trên trang.",
+  "permissions": ["storage", "contextMenus", "activeTab", "scripting"],
+  "host_permissions": [
+    "https://generativelanguage.googleapis.com/*",
+    "https://api.groq.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Quiz Answer Helper"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["overlay.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

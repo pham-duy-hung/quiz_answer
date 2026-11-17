@@ -1,0 +1,158 @@
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-width: 340px;
+  max-width: 420px;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.wrap {
+  padding: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.hint {
+  margin: 0;
+  font-size: 12px;
+  color: #475569;
+}
+
+label {
+  display: grid;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+  font-weight: 400;
+  background: #fff;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.row.tight {
+  gap: 4px;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  padding: 9px 12px;
+  background: #0f766e;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0d9488;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+button.secondary {
+  background: #1e293b;
+}
+
+button.secondary:hover {
+  background: #334155;
+}
+
+button.ghost {
+  background: transparent;
+  color: #0f766e;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+button.ghost:hover {
+  background: #e2e8f0;
+}
+
+.status {
+  min-height: 16px;
+  margin: 0;
+  font-size: 12px;
+  color: #15803d;
+}
+
+.key-status {
+  margin: -4px 0 0;
+  min-height: 14px;
+  font-size: 11px;
+  color: #64748b;
+}
+
+.key-status.ok {
+  color: #15803d;
+}
+
+.key-status.fail {
+  color: #b91c1c;
+}
+
+.log-box {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.log-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 10px;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 12px;
+}
+
+.log-view {
+  margin: 0;
+  max-height: 160px;
+  overflow: auto;
+  padding: 8px 10px;
+  font-size: 10px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: #0b1220;
+  color: #e2e8f0;
+}
+
+.links {
+  margin: 0;
+  font-size: 11px;
+  color: #64748b;
+}
+
+.links a {
+  color: #0f766e;
+}

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Answer Helper</title>
+    <link rel="stylesheet" href="./popup.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <h1>Quiz Answer Helper</h1>
+      <p class="hint">
+        Bôi đen câu hỏi → chuột phải → <strong>Get đáp án</strong>
+      </p>
+
+      <label>
+        Gemini API key
+        <input id="geminiKey" type="password" autocomplete="off" placeholder="AIza..." />
+      </label>
+      <p id="geminiStatus" class="key-status" aria-live="polite"></p>
+
+      <label>
+        Groq API key
+        <input id="groqKey" type="password" autocomplete="off" placeholder="gsk_..." />
+      </label>
+      <p id="groqStatus" class="key-status" aria-live="polite"></p>
+
+      <div class="row">
+        <button id="save" type="button">Lưu</button>
+        <button id="testGemini" type="button" class="secondary">Test Gemini</button>
+        <button id="testGroq" type="button" class="secondary">Test Groq</button>
+      </div>
+
+      <p id="status" class="status" aria-live="polite"></p>
+
+      <section class="log-box">
+        <div class="log-header">
+          <strong>Log</strong>
+          <div class="row tight">
+            <button id="refreshLog" type="button" class="ghost">Refresh</button>
+            <button id="downloadLog" type="button" class="ghost">Tải quiz-answer.log</button>
+            <button id="clearLog" type="button" class="ghost">Xóa log</button>
+          </div>
+        </div>
+        <pre id="logView" class="log-view">(chưa có log)</pre>
+      </section>
+
+      <p class="links">
+        Free keys:
+        <a href="https://aistudio.google.com/apikey" target="_blank" rel="noreferrer">Gemini</a>
+        ·
+        <a href="https://console.groq.com/keys" target="_blank" rel="noreferrer">Groq</a>
+      </p>
+    </main>
+    <script type="module" src="./popup.ts"></script>
+  </body>
+</html>

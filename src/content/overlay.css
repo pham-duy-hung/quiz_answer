@@ -1,0 +1,92 @@
+.qah-highlight {
+  background-color: #90ee90 !important;
+  border-radius: 2px;
+}
+
+.qah-overlay {
+  position: absolute;
+  z-index: 2147483646;
+  min-width: 200px;
+  max-width: 320px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #111827;
+  color: #f9fafb;
+  font: 13px/1.4 system-ui, -apple-system, Segoe UI, sans-serif;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+  box-sizing: border-box;
+}
+
+.qah-overlay-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.qah-overlay-title {
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: #d1d5db;
+}
+
+.qah-close {
+  border: 0;
+  background: transparent;
+  color: #9ca3af;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  padding: 0 2px;
+}
+
+.qah-close:hover {
+  color: #fff;
+}
+
+.qah-slot {
+  padding: 8px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.qah-slot:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.qah-slot[hidden] {
+  display: none !important;
+}
+
+.qah-provider {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #93c5fd;
+  margin-bottom: 2px;
+}
+
+.qah-answer {
+  font-size: 16px;
+  font-weight: 700;
+  color: #86efac;
+}
+
+.qah-explanation {
+  margin-top: 4px;
+  color: #e5e7eb;
+  font-size: 12px;
+}
+
+.qah-loading {
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+.qah-empty {
+  color: #fca5a5;
+  font-size: 12px;
+  padding: 4px 0;
+}
